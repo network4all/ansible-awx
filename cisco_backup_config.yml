@@ -1,6 +1,6 @@
 ---
 - name: Cisco Backup Config
-  hosts: "{{ cisco_router }}"
+  hosts: SW-CAT-01
   connection: network_cli
   gather_facts: no
 
