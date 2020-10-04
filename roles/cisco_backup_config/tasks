@@ -1,0 +1,25 @@
+---
+- name: Backup Config
+  ios_config:
+    backup: yes
+  register: config_output
+
+- name: Remove Non Config Lines
+  lineinfile:
+    path: "{{ config_output.backup_path }}"
+    line: "Building configuration..."
+    state: absent
+
+- name: Remove Non Config Lines using Regular Expression
+  lineinfile:
+    path: "{{ config_output.backup_path }}"
+    regexp: 'Current configuration.*'
+    state: absent
+
+- name: Archive Config
+  ios_command:
+    commands: archive config
+
+- name: Print list of config archives
+  ios_command:
+    commands: show archive
