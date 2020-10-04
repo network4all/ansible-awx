@@ -1,6 +1,6 @@
 ---
 - name: Cisco Backup Config
-  hosts: switches
+  hosts: "{{ cisco_router }}"
   connection: network_cli
   gather_facts: no
 
