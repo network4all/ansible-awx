@@ -3,7 +3,8 @@
     hosts: all
     connection: winrm
     gather_facts: no
-  
+    
+  tasks:
   - name: "Install AD Services feature"
     register: result
     win_feature: 
