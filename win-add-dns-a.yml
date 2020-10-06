@@ -1,0 +1,8 @@
+
+
+- name: Create DNS A record for gitlab
+  win_ad_dnsrecord:
+    hostname: yoda
+    zone: "{{ dns_domain_name }}"
+    ipaddr: "{{ hostvars['gitlab']['private_ip'] }}"
+    state: present
