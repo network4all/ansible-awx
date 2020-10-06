@@ -8,12 +8,12 @@ Some notes on building a ansible/awx/kvm/vagrant virtual environment.
 `vagrant winrm -e -s cmd -c "powershell -Command Start-Service ssh-agent"`
 
 ##  vagrant winrm
-VAGRANT_DISABLE_STRICT_DEPENDENCY_ENFORCEMENT=1 vagrant plugin install winrm winrm-elevated winrm-fs
+`VAGRANT_DISABLE_STRICT_DEPENDENCY_ENFORCEMENT=1 vagrant plugin install winrm winrm-elevated winrm-fs`
 
-vagrant winrm -s cmd -c ipconfig
+`vagrant winrm -s cmd -c ipconfig`
 
 ## virsh / bridge vlan 90 example with vagrant / 2nd NIC
-modprobe 8021q
+`modprobe 8021q
 
 cat /etc/sysconfig/network-scripts/ifcfg-enp0s20u3 
 TYPE=Ethernet
@@ -67,6 +67,8 @@ Vagrant.configure("2") do |config|
     end
   end
 end
+`
+
 
 
 
