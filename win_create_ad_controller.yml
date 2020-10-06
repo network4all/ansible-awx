@@ -9,20 +9,10 @@
     
 
   - name: "Install AD Services feature"
-    register: result
     win_feature: 
       include_management_tools: true
       include_sub_features: true
       name: AD-Domain-Services
-    state: present
-
-  - name: "Create new forest"
+      state: present
     register: result
-    win_domain: 
-      dns_domain_name: network4all.local
-      safe_mode_password: VerySecretP4ssword!
 
-  - name: "Reboot after creation"
-    when: result.reboot_required
-    win_reboot: 
-      msg: "Server config in progress; rebooting..."
