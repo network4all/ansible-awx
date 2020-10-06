@@ -7,22 +7,22 @@
       ansible_connection: winrm
       ansible_winrm_server_cert_validation: ignore
     
-  - tasks:
-    - name: "Install AD Services feature"
-      register: result
-      win_feature: 
-        include_management_tools: true
-        include_sub_features: true
-        name: AD-Domain-Services
-      state: present
 
-    - name: "Create new forest"
-      register: result
-      win_domain: 
-        dns_domain_name: network4all.local
-        safe_mode_password: VerySecretP4ssword!
+  - name: "Install AD Services feature"
+    register: result
+    win_feature: 
+      include_management_tools: true
+      include_sub_features: true
+      name: AD-Domain-Services
+    state: present
 
-    - name: "Reboot after creation"
-      when: result.reboot_required
-      win_reboot: 
-        msg: "Server config in progress; rebooting..."
+  - name: "Create new forest"
+    register: result
+    win_domain: 
+      dns_domain_name: network4all.local
+      safe_mode_password: VerySecretP4ssword!
+
+  - name: "Reboot after creation"
+    when: result.reboot_required
+    win_reboot: 
+      msg: "Server config in progress; rebooting..."
