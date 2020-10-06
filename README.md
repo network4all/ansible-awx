@@ -20,32 +20,37 @@ vagrant winrm -e -s cmd -c "ROUTE ADD 0.0.0.0 MASK 0.0.0.0 10.250.90.254 METRIC 
 `vagrant winrm -s cmd -c ipconfig`
 
 ## virsh / bridge vlan 90 example with vagrant / 2nd NIC
-```
-modprobe 8021q
+`modprobe 8021q`
 
 cat /etc/sysconfig/network-scripts/ifcfg-enp0s20u3 
+```
 TYPE=Ethernet
 BOOTPROTO=none
 DEVICE=enp0s20u3
 ONBOOT=yes
 BRIDGE=br-enp0s20u3
+```
 
-cat /etc/sysconfig/network-scripts/ifcfg-br-enp0s20u3 
+cat /etc/sysconfig/network-scripts/ifcfg-br-enp0s20u3
+```
 TYPE=Bridge
 BOOTPROTO=none
 DEVICE=br-enp0s20u3
 ONBOOT=yes
 DELAY=0
-
+```
+```
 vconfig add br-enp0s20u3 90
 ifup br-enp0s20u3.90
-
+```
 cat bridge-vlan90.xml
+```
 <network>
   <name>vlan90</name>
   <forward mode='bridge'/>
   <bridge name='br-enp0s20u3.90' />
 </network>
+```
 
 virsh net-list
 virsh net-destroy default
