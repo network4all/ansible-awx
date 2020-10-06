@@ -8,9 +8,9 @@
       ansible_winrm_server_cert_validation: ignore
       dns_domain_name: network4all.local
 
-  - name: Create DNS A record for yoda
+  - name: Create database server record
     win_dns_record:
-      hostname: yoda
-      zone: "{{ dns_domain_name }}"
-      ipaddr: "10.250.90.201"
-      state: present
+      name: "yoda.network4all.local"
+      type: "A"
+      value: "10.250.90.201"
+      zone: "network4all.local"
