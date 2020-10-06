@@ -14,3 +14,14 @@
       name: AD-Domain-Services
       state: present
     register: result
+
+  - name: "Create new forest"
+    register: result
+    win_domain: 
+      dns_domain_name: network4all.local
+      safe_mode_password: VerySecretP4ssword!
+
+  - name: "Reboot after creation"
+    when: result.reboot_required
+    win_reboot: 
+      msg: "Server config in progress; rebooting..."
