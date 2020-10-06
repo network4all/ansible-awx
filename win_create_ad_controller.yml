@@ -8,6 +8,7 @@
     dc_address: 10.250.90.200
     upstream_dns_1: 192.168.0.254
     ntp_servers: "0.us.pool.ntp.org,1.us.pool.ntp.org"
+    reverse_dns_zone: "10.250.0.0/16"
 
   tasks:
   - name: Install AD Services feature
@@ -69,6 +70,12 @@
     tags: disable_firewall
     delegate_to: '{{ dc_address }}'
     
-
+    - name: Create reverse DNS zone
+      win_shell: "Add-DnsServerPrimaryZone -NetworkID {{reverse_dns_zone}} -ReplicationScope Forest"
+      delegate_to: "{{ dc_address }}"    
+      retries: 30
+      delay: 60
+      register: result           
+      until: result is succeeded
     
     
