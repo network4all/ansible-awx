@@ -52,6 +52,8 @@ cat bridge-vlan90.xml
 </network>
 ```
 
+Add vlan bridge to virsh
+```
 virsh net-list
 virsh net-destroy default
 virsh net-undefine default
