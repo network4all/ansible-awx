@@ -55,7 +55,7 @@
   - name: Start the time service
     win_service:
       name: w32time
-       state: started  
+      state: started  
     delegate_to: '{{ dc_address }}'
     
   - name: Disable firewall for Domain, Public and Private profiles
