@@ -7,7 +7,7 @@
     ansible_winrm_server_cert_validation: ignore
 
   tasks:
-  - name: name: "Install AD Services feature"
+  - name: Install AD Services feature
     win_feature:   
       include_management_tools: true
       include_sub_features: true
