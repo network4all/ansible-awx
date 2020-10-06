@@ -7,6 +7,7 @@
     ansible_winrm_server_cert_validation: ignore
     dc_address: 10.250.90.200
     upstream_dns_1: 192.168.0.254
+    ntp_servers: "0.us.pool.ntp.org,1.us.pool.ntp.org"
 
   tasks:
   - name: Install AD Services feature
