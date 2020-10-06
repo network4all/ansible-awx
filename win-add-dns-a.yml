@@ -9,7 +9,7 @@
       dns_domain_name: network4all.local
 
   - name: Create database server record
-    community.windows.win_dns_record:
+    win_dns_record:
       name: "yoda.network4all.local"
       type: "A"
       value: "10.250.90.201"
