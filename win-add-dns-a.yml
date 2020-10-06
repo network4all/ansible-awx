@@ -7,11 +7,11 @@
     ansible_connection: winrm
     ansible_winrm_server_cert_validation: ignore
     dns_domain_name: network4all.local
-    
-  tasks:
-   - name: Create DNS A record for yoda
-     win_ad_dnsrecord:
-       hostname: yoda
-       zone: "{{ dns_domain_name }}"
-       ipaddr: "10.250.90.201"
-       state: present
+
+tasks:
+- name: Create DNS A record for yoda
+  win_ad_dnsrecord:
+    hostname: yoda
+    zone: "{{ dns_domain_name }}"
+    ipaddr: "10.250.90.201"
+    state: present
