@@ -1,14 +1,14 @@
   
 --- 
-- name: Add DNS host
-  hosts: all
-  gather_facts: true
-  vars:
-    ansible_connection: winrm
-    ansible_winrm_server_cert_validation: ignore
-    dns_domain_name: network4all.local
+  - name: Add DNS host
+    hosts: all
+    gather_facts: true
+    vars:
+      ansible_connection: winrm
+      ansible_winrm_server_cert_validation: ignore
+      dns_domain_name: network4all.local
 
-tasks:
+  tasks:
   - name: Create DNS A record for yoda
     win_ad_dnsrecord:
       hostname: yoda
