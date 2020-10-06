@@ -1,8 +1,11 @@
 --- 
   - name: Domain controller configuration script
     hosts: all
-    connection: winrm
-    gather_facts: no
+    vars:
+      ansible_ssh_user: vagrant
+      ansible_ssh_pass: vagrant
+      ansible_connection: winrm
+      ansible_winrm_server_cert_validation: ignore
     
   tasks:
   - name: "Install AD Services feature"
