@@ -2,10 +2,17 @@
 
 Some notes on building a ansible/awx/kvm/vagrant virtual environment.
 
-
-
 ## install sshd on guest
-`vagrant winrm -e -s cmd -c "powershell -Command Start-Service ssh-agent"`
+```
+vagrant winrm -s cmd -c "powershell -Command Get-Service ssh*"
+vagrant winrm -e -s cmd -c "powershell -Command Add-WindowsCapability -Online -Name OpenSSH.Server~~~~0.0.1.0"
+vagrant winrm -s cmd -c "powershell -Command Set-Service ssh-agent -StartupType Manual"
+
+vagrant winrm -s cmd -c "powershell -Command Start-Service sshd"
+vagrant winrm -s cmd -c "powershell -Command Start-Service ssh-agent"
+
+vagrant winrm -e -s cmd -c "ROUTE ADD 0.0.0.0 MASK 0.0.0.0 10.250.90.254 METRIC 50"
+```
 
 ##  vagrant winrm
 `VAGRANT_DISABLE_STRICT_DEPENDENCY_ENFORCEMENT=1 vagrant plugin install winrm winrm-elevated winrm-fs`
