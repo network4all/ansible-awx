@@ -1,10 +1,11 @@
 --- 
-  - name: Domain controller configuration script
-    hosts: all
-    vars:
-      ansible_connection: winrm
-      ansible_winrm_server_cert_validation: ignore
-    
+- name: Domain controller configuration script
+  hosts: all
+  gather_facts: true
+  vars:
+    ansible_connection: winrm
+    ansible_winrm_server_cert_validation: ignore
+
   tasks:
   - name: name: "Install AD Services feature"
     win_feature:   
