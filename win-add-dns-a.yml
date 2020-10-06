@@ -9,7 +9,7 @@
       dns_domain_name: network4all.local
 
   - name: Create DNS A record for yoda
-    win_ad_dnsrecord:
+    win_dns_record:
       hostname: yoda
       zone: "{{ dns_domain_name }}"
       ipaddr: "10.250.90.201"
