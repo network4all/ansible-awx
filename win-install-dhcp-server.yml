@@ -12,3 +12,6 @@
 
   tasks:
   - name: Install software
+    win_feature:
+      name: "dhcp-server"
+      state: present
