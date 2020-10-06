@@ -6,6 +6,7 @@
     ansible_connection: winrm
     ansible_winrm_server_cert_validation: ignore
     dc_address: 10.250.90.200
+    upstream_dns_1: 192.168.0.254
 
   tasks:
   - name: Install AD Services feature
@@ -32,6 +33,13 @@
       adapter_names: '*'
       ipv4_addresses:
       - '127.0.0.1'
+    delegate_to: '{{ dc_address }}'
+    
+  - name: Set upstream DNS server 
+    win_dns_client:
+      adapter_names: '*'
+      ipv4_addresses:
+      - '{{ upstream_dns_1 }}'
     delegate_to: '{{ dc_address }}'
     
   - name: Disable firewall for Domain, Public and Private profiles
