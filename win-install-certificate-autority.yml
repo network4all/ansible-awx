@@ -14,5 +14,7 @@
   - name: Install software
     win_feature:
       name: "active-directory-certificate-services"
+      include_management_tools: true
+      include_sub_features: true
       state: present
    
