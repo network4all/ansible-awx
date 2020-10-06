@@ -2,17 +2,14 @@
   - name: Domain controller configuration script
     hosts: all
     vars:
-      ansible_ssh_user: vagrant
-      ansible_ssh_pass: vagrant
       ansible_connection: winrm
       ansible_winrm_server_cert_validation: ignore
     
-  - tasks:
-  - name: "Install AD Services feature"
-    win_feature: 
+  tasks:
+  - name: name: "Install AD Services feature"
+    win_feature:   
       include_management_tools: true
       include_sub_features: true
       name: AD-Domain-Services
       state: present
     register: result
-
