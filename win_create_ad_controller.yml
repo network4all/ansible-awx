@@ -42,6 +42,22 @@
       - '{{ upstream_dns_1 }}'
     delegate_to: '{{ dc_address }}'
     
+   - name: Stop the time service
+    win_service:
+      name: w32time
+      state: stopped
+    delegate_to: '{{ dc_address }}'
+    
+   - name: Set NTP Servers
+     win_shell: 'w32tm /config /syncfromflags:manual /manualpeerlist:"{{ntp_servers}}"'
+     delegate_to: '{{ dc_address }}'
+     
+   - name: Start the time service
+     win_service:
+       name: w32time
+       state: started  
+     delegate_to: '{{ dc_address }}'
+    
   - name: Disable firewall for Domain, Public and Private profiles
     win_firewall:
       state: disabled
