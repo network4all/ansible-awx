@@ -13,7 +13,7 @@
   tasks:
   - name: Install software
     win_feature:
-      name: "DHCP server"
+      name: "DHCP"
       include_management_tools: true
       include_sub_features: true
       state: present
