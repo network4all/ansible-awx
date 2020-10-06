@@ -13,7 +13,8 @@ Some notes on building a ansible/awx/kvm/vagrant virtual environment.
 `vagrant winrm -s cmd -c ipconfig`
 
 ## virsh / bridge vlan 90 example with vagrant / 2nd NIC
-`modprobe 8021q
+```
+modprobe 8021q
 
 cat /etc/sysconfig/network-scripts/ifcfg-enp0s20u3 
 TYPE=Ethernet
@@ -67,7 +68,7 @@ Vagrant.configure("2") do |config|
     end
   end
 end
-`
+```
 #end
 
 
