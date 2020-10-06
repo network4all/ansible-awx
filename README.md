@@ -47,7 +47,9 @@ virsh net-undefine default
 virsh net-define bridge-vlan90.xml
 virsh net-start bridge-vlan90.xml
 virsh net-autostart bridge-vlan90.xml
+```
 
+```
 ENV['VAGRANT_DEFAULT_PROVIDER'] = 'libvirt'
 
 Vagrant.configure("2") do |config|
