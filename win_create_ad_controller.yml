@@ -1,5 +1,5 @@
 --- 
-  - name: Generate Cisco IOS OS Report
+  - name: Domain controller configuration script
     hosts: all
     connection: winrm
     gather_facts: no
