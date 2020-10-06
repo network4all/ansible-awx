@@ -70,12 +70,12 @@
     tags: disable_firewall
     delegate_to: '{{ dc_address }}'
     
-    - name: Create reverse DNS zone
-      win_shell: "Add-DnsServerPrimaryZone -NetworkID {{reverse_dns_zone}} -ReplicationScope Forest"
-      delegate_to: "{{ dc_address }}"    
-      retries: 30
-      delay: 60
-      register: result           
-      until: result is succeeded
-    
+  - name: Create reverse DNS zone
+    win_shell: "Add-DnsServerPrimaryZone -NetworkID {{reverse_dns_zone}} -ReplicationScope Forest"
+    delegate_to: "{{ dc_address }}"    
+    retries: 30
+    delay: 60
+    register: result           
+    until: result is succeeded
+
     
