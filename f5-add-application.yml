@@ -4,7 +4,11 @@
   gather_facts: False
   connection: local
   vars:  
-    server: 10.250.90.222
+    provider:
+        server: 10.250.90.222
+        validate_certs: no
+        user: vagrant
+        password: vagrant
 
   tasks:
   - name: Create pool
@@ -15,11 +19,7 @@
       partition: Common
       lb_method: least-connections-member
       slow_ramp_time: 120
-      provider:
-        server: 10.250.90.222
-        validate_certs: no
-        user: vagrant
-        password: vagrant
+      provider: {{ provider }}
     delegate_to: localhost
   
 
