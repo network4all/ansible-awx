@@ -13,7 +13,7 @@
       bigip_pool_member:
         server: 10.250.90.201
         description: webserver-1
-        host: 10.250.90.200
+        #host: 10.250.90.200
         name: server
         pool: web-servers
         port: 80       
