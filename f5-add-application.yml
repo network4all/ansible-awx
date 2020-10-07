@@ -3,20 +3,16 @@
   hosts: all
   gather_facts: False
   connection: local
-          
-#  vars:
- #   provider:
-###      server: 10.250.90.222
-#      user: vagrant
-  #    password: vagrant 
- #   validate_certs: no
+  vars:
+    server: 10.250.90.222
+    user: vagrant
+    password: vagrant
+    validate_certs: no
 
   tasks:
   - name: Create pool
     bigip_pool:
-      server: 10.250.90.222
-      user: vagrant
-      password: vagrant
+
       state: present
       name: my-pool
       partition: Common
