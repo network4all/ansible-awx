@@ -12,6 +12,8 @@
   tasks:
   - name: Create pool
     bigip_pool:
+      provider:
+        server: 10.250.90.222
       state: present
       name: my-pool
       partition: Common
