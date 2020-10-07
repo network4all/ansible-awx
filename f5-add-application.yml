@@ -16,7 +16,7 @@
       bigip_virtual_server:
         provider: "{{ provider }}"
         name: "{{ item.name }}"
-        destination: 198.51.100.1
+        destination: 10.250.90.200
         port: "{{ item.port }}"
         snat: "Automap"
         all_profiles: "{{ item.profiles }}"
