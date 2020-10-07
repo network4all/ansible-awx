@@ -19,7 +19,7 @@
       partition: Common
       lb_method: least-connections-member
       slow_ramp_time: 120
-      provider: {{ provider }}
+      provider: "{{ provider }}"
     delegate_to: localhost
   
 
