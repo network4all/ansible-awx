@@ -4,28 +4,22 @@
   gather_facts: False
   connection: local
   vars:
-    provider:
-      #password: "{{ bigip_password }}"
-      server: "{{ ansible_host }}"
-      #user: "{{ bigip_username }}"
-      validate_certs: False
-    profiles: "tcp-wan-optimized,http,wan-optimized-compression"
+    validate_certs: no
+    username: vagrant
+    password: admin
 
   tasks:
-    - name: Create HTTP and HTTPS virtual servers
-      bigip_virtual_server:
-        provider: "{{ provider }}"
-        name: "{{ item.name }}"
-        destination: 10.250.90.200
-        port: "{{ item.port }}"
-        snat: "Automap"
-        all_profiles: "{{ item.profiles }}"
-        pool: "example_pool"
-      loop:
-        - { name: "server_port_80",
-            port: 80,
-            profiles: "{{ profiles }}"
-          }
+    - name: Add nodes to pool
+      bigip_pool_member:
+        user: "{{ username }}"
+        password: "{{ password }}"
+        server: 10.250.90.222
+        description: webserver-1
+        host: 10.250.90.200
+        name: server
+        pool: web-servers
+        port: 80
+        
       notify:
         - Save the running configuration to disk
  
