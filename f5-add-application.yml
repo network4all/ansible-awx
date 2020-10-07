@@ -9,16 +9,17 @@
   tasks:
   - name: Create pool
     bigip_pool:
+      state: present
+      name: my-pool
+      description: managed by ansible
+      partition: Common
+      lb_method: least-connections-member
+      slow_ramp_time: 120
       provider:
         server: 10.250.90.222
         validate_certs: no
         user: vagrant
         password: vagrant
-      state: present
-      name: my-pool
-      partition: Common
-      lb_method: least-connections-member
-      slow_ramp_time: 120
     delegate_to: localhost
   
 
