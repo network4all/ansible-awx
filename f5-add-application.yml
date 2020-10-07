@@ -13,14 +13,14 @@
       bigip_pool_member:
         pool: my-pool
         partition: Common
-        host: "{{ ansible_default_ipv4['address'] }}"
+        host: 10.250.90.200
         port: 80
         description: web server
         connection_limit: 100
         rate_limit: 50
         ratio: 2
         provider:
-          server: 10.250.90.200
+          server: 10.250.90.222
           user: vagrant
           password: vagrant
       delegate_to: localhost
