@@ -12,27 +12,16 @@
  #   validate_certs: no
 
   tasks:
-    - name: Add nodes to pool
-      bigip_pool_member:
-        server: 10.250.90.222
-        pool: my-pool
-        partition: Common
-        host: 10.250.90.200
-        port: 80
-        description: web server
-        connection_limit: 100
-        rate_limit: 50
-        ratio: 2
+  - name: Create pool
+    bigip_pool:
+      server: 10.250.90.222
+      user: vagrant
+      password: vagrant
+      state: present
+      name: my-pool
+      partition: Common
+      lb_method: least-connection-member
+      slow_ramp_time: 120
+    delegate_to: localhost
+  
 
-      delegate_to: localhost
-        
-        
-        
-      #notify:
-     #   - Save the running configuration to disk
- 
-  handlers:
-    - name: Save the running configuration to disk
-      bigip_config:
-        save: yes
-        provider: "{{ provider }}"
