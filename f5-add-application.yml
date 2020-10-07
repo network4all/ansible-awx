@@ -1,0 +1,36 @@
+---
+- name: Create local traffic objects on a BIG-IP
+  hosts: all
+  gather_facts: False
+  connection: local
+  vars:
+    provider:
+      password: "{{ bigip_password }}"
+      server: "{{ ansible_host }}"
+      user: "{{ bigip_username }}"
+      validate_certs: False
+    profiles: "tcp-wan-optimized,http,wan-optimized-compression"
+
+  tasks:
+    - name: Create HTTP and HTTPS virtual servers
+      bigip_virtual_server:
+        provider: "{{ provider }}"
+        name: "{{ item.name }}"
+        destination: 198.51.100.1
+        port: "{{ item.port }}"
+        snat: "Automap"
+        all_profiles: "{{ item.profiles }}"
+        pool: "example_pool"
+      loop:
+        - { name: "server_port_80",
+            port: 80,
+            profiles: "{{ profiles }}"
+          }
+      notify:
+        - Save the running configuration to disk
+ 
+  handlers:
+    - name: Save the running configuration to disk
+      bigip_config:
+        save: yes
+        provider: "{{ provider }}"
