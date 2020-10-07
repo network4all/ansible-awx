@@ -14,12 +14,21 @@
   - name: Create pool
     bigip_pool:
       state: present
-      name: my-pool
-      description: managed by ansible
+      name: web-servers
+      description: managed by ansible 
       partition: Common
       lb_method: least-connections-member
       slow_ramp_time: 120
       provider: "{{ provider }}"
     delegate_to: localhost
+    
+  - name: Add nodes to pool
+    bigip_pool_member:
+      description: webserver-1
+      host: 10.250.90.200
+      name: chewie
+      pool: web-servers
+      port: 80
+      provider: "{{ provider }}"
   
 
