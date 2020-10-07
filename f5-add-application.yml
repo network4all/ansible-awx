@@ -5,9 +5,9 @@
   connection: local
   vars:
     provider:
-      password: "{{ bigip_password }}"
+      #password: "{{ bigip_password }}"
       server: "{{ ansible_host }}"
-      user: "{{ bigip_username }}"
+      #user: "{{ bigip_username }}"
       validate_certs: False
     profiles: "tcp-wan-optimized,http,wan-optimized-compression"
 
