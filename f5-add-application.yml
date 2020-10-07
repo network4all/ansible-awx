@@ -7,11 +7,11 @@
     user: vagrant
     password: vagrant
     validate_certs: no
+    server: 10.250.90.222
 
   tasks:
   - name: Create pool
     bigip_pool:
-      server: 10.250.90.222
       state: present
       name: my-pool
       partition: Common
