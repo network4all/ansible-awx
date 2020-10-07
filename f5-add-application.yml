@@ -11,12 +11,22 @@
   tasks:
     - name: Add nodes to pool
       bigip_pool_member:
-        server: 10.250.90.201
-        description: webserver-1
-        #host: 10.250.90.200
-        name: server
-        pool: web-servers
-        port: 80       
+        pool: my-pool
+        partition: Common
+        host: "{{ ansible_default_ipv4['address'] }}"
+        port: 80
+        description: web server
+        connection_limit: 100
+        rate_limit: 50
+        ratio: 2
+        provider:
+          server: 10.250.90.200
+          user: vagrant
+          password: vagrant
+      delegate_to: localhost
+        
+        
+        
       #notify:
      #   - Save the running configuration to disk
  
