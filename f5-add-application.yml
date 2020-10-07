@@ -4,9 +4,6 @@
   gather_facts: False
   connection: local
   vars:  
-    user: vagrant
-    password: vagrant
-    
     server: 10.250.90.222
 
   tasks:
@@ -15,6 +12,8 @@
       provider:
         server: 10.250.90.222
         validate_certs: no
+        user: vagrant
+        password: vagrant
       state: present
       name: my-pool
       partition: Common
