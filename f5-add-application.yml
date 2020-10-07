@@ -6,7 +6,7 @@
   vars:  
     user: vagrant
     password: vagrant
-    validate_certs: no
+    
     server: 10.250.90.222
 
   tasks:
@@ -14,6 +14,7 @@
     bigip_pool:
       provider:
         server: 10.250.90.222
+        validate_certs: no
       state: present
       name: my-pool
       partition: Common
