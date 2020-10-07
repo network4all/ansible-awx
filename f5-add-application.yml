@@ -11,15 +11,11 @@
   tasks:
     - name: Add nodes to pool
       bigip_pool_member:
-        user: "{{ username }}"
-        password: "{{ password }}"
-        server: 10.250.90.222
         description: webserver-1
         host: 10.250.90.200
         name: server
         pool: web-servers
-        port: 80
-        
+        port: 80       
       notify:
         - Save the running configuration to disk
  
