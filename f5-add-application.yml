@@ -3,10 +3,13 @@
   hosts: all
   gather_facts: False
   connection: local
+          
   vars:
+    provider:
+      server: 10.250.90.222
+      user: vagrant
+      password: vagrant 
     validate_certs: no
-    username: vagrant
-    password: admin
 
   tasks:
     - name: Add nodes to pool
@@ -19,10 +22,7 @@
         connection_limit: 100
         rate_limit: 50
         ratio: 2
-        provider:
-          server: 10.250.90.222
-          user: vagrant
-          password: vagrant
+
       delegate_to: localhost
         
         
