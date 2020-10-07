@@ -17,8 +17,8 @@
         name: server
         pool: web-servers
         port: 80       
-      notify:
-        - Save the running configuration to disk
+      #notify:
+     #   - Save the running configuration to disk
  
   handlers:
     - name: Save the running configuration to disk
