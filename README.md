@@ -16,6 +16,9 @@ vagrant winrm -e -s cmd -c "ROUTE ADD 0.0.0.0 MASK 0.0.0.0 10.250.90.254 METRIC 
 
 ##  vagrant winrm
 `VAGRANT_DISABLE_STRICT_DEPENDENCY_ENFORCEMENT=1 vagrant plugin install winrm winrm-elevated winrm-fs`
+`VAGRANT_DISABLE_STRICT_DEPENDENCY_ENFORCEMENT=1 vagrant plugin install vagrant-faster`
+`VAGRANT_DISABLE_STRICT_DEPENDENCY_ENFORCEMENT=1 vagrant plugin install vagrant-cachier`
+
 
 `vagrant winrm -s cmd -c ipconfig`
 
