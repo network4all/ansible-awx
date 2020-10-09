@@ -1,4 +1,8 @@
-
+---
+- name: Create local traffic objects on a BIG-IP
+  hosts: all
+  gather_facts: False
+  connection: local
 
 #- name: configure top level configuration
 #  cisco.ios.ios_config:
