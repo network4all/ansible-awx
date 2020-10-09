@@ -5,22 +5,22 @@
   connection: network_cli
 
   tasks:
-- name: configure ip helpers on multiple interfaces
-  cisco.ios.ios_config:
-    lines:
-    - ip helper-address 10.250.90.200
-    parents: '{{ item }}'
-  with_items:
-  - interface Vlan91
-  - interface Vlan92
-  - interface Vlan93
-  - interface Vlan94
-  - interface Vlan95
-  - interface Vlan96
-  - interface Vlan97
-  - interface Vlan98
-  - interface Vlan99
-  
+  - name: configure ip helpers on multiple interfaces
+    cisco.ios.ios_config:
+      lines:
+      - ip helper-address 10.250.90.200
+      parents: '{{ item }}'
+    with_items:
+    - interface Vlan91
+    - interface Vlan92
+    - interface Vlan93
+    - interface Vlan94
+    - interface Vlan95
+    - interface Vlan96
+    - interface Vlan97
+    - interface Vlan98
+    - interface Vlan99
+
   #- name: configure top level configuration
 #  cisco.ios.ios_config:
 #    lines: hostname {{ inventory_hostname }}
