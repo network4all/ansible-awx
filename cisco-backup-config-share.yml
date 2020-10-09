@@ -1,0 +1,14 @@
+---
+- name: Create IP helpers to domain controllers
+  hosts: all
+  gather_facts: False
+  connection: network_cli
+
+  tasks:
+  - name: configure ip helpers on multiple interfaces
+    ios_config:
+      src: ios_template.j2
+        backup: yes
+        backup_options:
+          filename: backup.cfg
+          dir_path: /root/
