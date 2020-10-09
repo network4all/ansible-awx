@@ -1,5 +1,5 @@
 ---
-- name: Create local traffic objects on a BIG-IP
+- name: Create IP helpers to domain controllers
   hosts: all
   gather_facts: False
   connection: network_cli
