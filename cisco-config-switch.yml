@@ -6,7 +6,7 @@
 
   tasks:
   - name: configure ip helpers on multiple interfaces
-    cisco.ios.ios_config:
+    ios_config:
       lines:
       - ip helper-address 10.250.90.200
       parents: '{{ item }}'
