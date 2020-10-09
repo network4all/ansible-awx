@@ -4,6 +4,7 @@
   gather_facts: False
   connection: network_cli
 
+  tasks:
 - name: configure ip helpers on multiple interfaces
   cisco.ios.ios_config:
     lines:
