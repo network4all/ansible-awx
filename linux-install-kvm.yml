@@ -4,6 +4,10 @@
  # ANSIBLE_HOST_KEY_CHECKING: no
 
   tasks:
+  - name: update the system
+    dnf:
+      name: "*"
+      state: latest
   - name: Add default tools for kvm
     dnf:
       name: "{{ packages }}"
