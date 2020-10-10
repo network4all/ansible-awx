@@ -20,8 +20,8 @@
         - vagrant
         - qemu-kvm
         - libvirt-daemon-system
-        - libvirt-clients
-        - virtinst
+#        - libvirt-clients
+#        - virtinst
         - bridge-utils
         - libguestfs-tools
         - virt-top
@@ -35,11 +35,14 @@
         - gcc-c++
         - zlib-devel
         
-  - name: Start service httpd, if not started
+  - name: Start service libvirtd, if not started
     service:
       name: libvirtd
       state: started
         
-   
+  - name: Enable service libvirtd, and not touch the state
+    service:
+      name: libvirtd
+      enabled: yes
         
 
