@@ -18,3 +18,4 @@
         - tcpdump
         - nano
         - wireshark
+        - vagrant
