@@ -22,6 +22,14 @@
     - interface Vlan97
     - interface Vlan98
     - interface Vlan99
+   
+  - name: configure
+    cisco.ios.ios_config:
+    lines:
+    - ip dhcp pool monitoring
+    -  host 10.250.90.203 255.255.255.0
+    -  hardware-address 525400aaaa03
+    -  client-name ntop
 
   - name: save running to startup when modified
     ios_config:
