@@ -29,7 +29,13 @@
       - ip dhcp pool monitoring
       - host 10.250.90.203 255.255.255.0
       - hardware-address 525400aaaa03
-      - client-name ntop
+
+  - name: configure
+    ios_config:
+      lines:
+      - ip dhcp pool monitoring1
+      - host 10.250.90.203 255.255.255.0
+      - client-identifier 0152.5400.aaaa.03 
 
   - name: save running to startup when modified
     ios_config:
