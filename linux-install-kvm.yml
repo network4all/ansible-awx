@@ -19,7 +19,7 @@
         - wireshark
         - vagrant
         - qemu-kvm
-        - libvirt-daemon-system
+#        - libvirt-daemon-system
 #        - libvirt-clients
 #        - virtinst
         - bridge-utils
