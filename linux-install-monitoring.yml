@@ -21,9 +21,8 @@
         - mtr
         
   - name: Disable SELinux
-    ansible.posix.selinux:
+    selinux:
       state: disabled
-
 
   - name: Start service httpd, if not started
     service:
