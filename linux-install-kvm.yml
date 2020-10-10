@@ -1,5 +1,7 @@
 ---
 - hosts: all
+  gather_facts: no
+  validate_certs: no
 
   tasks:
   - name: Add a list of software on Linode VMs ...
