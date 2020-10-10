@@ -9,6 +9,8 @@
     ios_config:
       lines:
       - ip helper-address 10.250.90.200
+      - no ip redirects
+      - no ip proxy-arp
       parents: '{{ item }}'
     with_items:
     - interface Vlan91
