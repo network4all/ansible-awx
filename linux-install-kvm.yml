@@ -4,7 +4,7 @@
   validate_certs: no
 
   tasks:
-  - name: Add a list of software on Linode VMs ...
+  - name: Add default tools for kvm
     dnf:
       name: "{{ packages }}"
       state: present
