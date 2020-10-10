@@ -30,7 +30,7 @@
         - libvirt-devel 
         - make 
         - rdesktop
-        - @Development tools'
+        - '@Development tools'
         - ruby-devel
         - gcc-c++
         - zlib-devel
