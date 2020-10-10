@@ -18,3 +18,24 @@
         - nano
         - wireshark
         - vagrant
+        - qemu-kvm
+        - libvirt-daemon-system
+        - libvirt-clients
+        - virtinst
+        - bridge-utils
+        - libguestfs-tools
+        - virt-top
+        - gcc
+        - libvirt-daemon-kvm
+        - libvirt-devel 
+        - make 
+        - rdesktop
+        - @Development tools'
+        - ruby-devel
+        - gcc-c++
+        - zlib-devel
+        
+        
+   
+        
+
