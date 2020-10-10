@@ -1,7 +1,6 @@
 ---
 - hosts: all
   gather_facts: no
- # ANSIBLE_HOST_KEY_CHECKING: no
 
   tasks:
   - name: update the system
