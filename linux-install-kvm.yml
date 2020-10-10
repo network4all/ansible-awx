@@ -1,0 +1,14 @@
+---
+- hosts: all
+
+  tasks:
+  - name: Add a list of software on Linode VMs ...
+    dnf:
+      name: "{{ packages }}"
+      state: present
+    vars:
+      packages:
+        - htop
+        - tcpdump
+        - nano
+        - wireshark
