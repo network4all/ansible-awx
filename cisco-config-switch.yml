@@ -24,7 +24,7 @@
     - interface Vlan99
    
   - name: configure
-    cisco.ios.ios_config:
+    ios_config:
     lines:
     - ip dhcp pool monitoring
     -  host 10.250.90.203 255.255.255.0
