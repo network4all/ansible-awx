@@ -23,3 +23,14 @@
   - name: Disable SELinux
     ansible.posix.selinux:
       state: disabled
+
+
+  - name: Start service httpd, if not started
+    service:
+      name: httpd
+      state: started
+        
+  - name: Enable service httpd, and not touch the state
+    service:
+      name: httpd
+      enabled: yes
