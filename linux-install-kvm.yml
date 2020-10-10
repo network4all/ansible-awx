@@ -45,5 +45,18 @@
     service:
       name: libvirtd
       enabled: yes
-        
 
+  - name: replace lines
+    lineinfile: 
+      path: /etc/libvirt/qemu.conf 
+      regexp: '^(.*)#user = "root"(.*)$' 
+      line: 'user = "root"'
+      backrefs: yes
+        
+  - name: replace line      
+    lineinfile: 
+      path: /etc/libvirt/qemu.conf 
+      regexp: '^(.*)#group = "root"(.*)$' 
+      line: 'group = "root"'
+      backrefs: yes
+      
