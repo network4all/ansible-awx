@@ -23,14 +23,14 @@
     - interface Vlan98
     - interface Vlan99
    
-  - name: configure
+  - name: configure monitoring
     ios_config:
       lines:
       - ip dhcp pool monitoring
       - host 10.250.90.203 255.255.255.0
       - hardware-address 525400aaaa03
 
-  - name: configure
+  - name: configure monitoring 1
     ios_config:
       lines:
       - ip dhcp pool monitoring1
@@ -38,7 +38,7 @@
       - client-identifier 0152.5400.aaaa.03 
       
    
-  - name: configure
+  - name: configure maas
     ios_config:
       lines:
       - ip dhcp pool maas
