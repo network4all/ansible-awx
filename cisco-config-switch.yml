@@ -36,6 +36,14 @@
       - ip dhcp pool monitoring1
       - host 10.250.90.204 255.255.255.0
       - client-identifier 0152.5400.aaaa.03 
+      
+   
+  - name: configure
+    ios_config:
+      lines:
+      - ip dhcp pool maas
+      - host 10.250.90.205 255.255.255.0
+      - client-identifier 0152.5400.aaaa.04 
 
   - name: save running to startup when modified
     ios_config:
