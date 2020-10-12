@@ -90,6 +90,14 @@ end
 ```
 #end
 
+## sysctl: cannot stat /proc/sys/net/bridge/bridge-nf-call-ip6tables:
+nano /etc/sysctl.conf
+net.bridge.bridge-nf-call-ip6tables = 0
+net.bridge.bridge-nf-call-iptables = 0
+net.bridge.bridge-nf-call-arptables = 0
+modprobe bridge
+modprobe br_netfilter
+sysctl -p /etc/sysctl.conf
 
 
 
